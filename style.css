@@ -7,6 +7,7 @@
   text-decoration: none;
   list-style-type: none;
 }
+
 :root {
   --font-cursive: "Slackside One", cursive;
   --font-poppi: "Poppins",  sans-serif;
@@ -15,18 +16,19 @@
     rgba(28, 28, 29, 0.368) 0%,
     rgba(1, 1, 1, 0.264) 100%
   );
+  --filter-drop_sh_card: drop-shadow(2px 2px 15px #1168d4);
 }
 
-
 body {
-  background: 
-  var(--linear-gradient_v1),
+  background: var(--linear-gradient_v1),
     url("https://images.unsplash.com/photo-1656608138197-2aea23cc3564?q=80&w=1977&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
       center / cover no-repeat;
 }
+
 header {
   padding: 3px 100px;
 }
+
 .header-container {
   padding: 3px 40px;
   display: flex;
@@ -52,27 +54,48 @@ header {
   cursor: pointer;
   filter: drop-shadow(20px 0px 1px #1168d4);
 }
+
 .navlinks ul {
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .navlinks ul li {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 30px 0 0;
 }
 .navlinks ul li a {
   font-size: 24px;
-  padding: 2px 20px;
+  /* padding: 0px 10px; */
   margin: 0 20px 0 0;
-  color: white;
+  color: #a0a0a0;
   font-family: "Slackside One", cursive;
+  position: relative;
+  transition: 1s;
+}
+
+.navlinks ul li a::after {
+  content: "";
+  position: absolute;
+  background-color: #0870ea;
+  width: 0;
+  height: 3px;
+  bottom: -2px;
+  left: 0px;
+  transition: 0.3s;
 }
 
 .navlinks ul li a:hover {
-  text-decoration: underline;
+  color: #ffffff;
+}
+
+.navlinks ul li a:hover:after {
+  width: 100%;
+  filter: drop-shadow(2px 2px 5px #1168d4);
 }
 
 .navlinks ul .i-container {
@@ -97,7 +120,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-end;
   position: relative;
   height: 80vh;
   padding: 20px;
@@ -106,21 +129,21 @@ section {
 .section-content h2 {
   transition: 0.7s;
   color: #ffffff;
-  font-size: 60px;
+  font-size: 80px;
   font-family: var(--font-cursive);
 }
 
 .section-content h2:hover {
   filter: drop-shadow(7px 7px 1px #1670df) contrast(300%) saturate(400%);
-  /* filter: contrast(120%); */
-  /* filter: grayscale(100%); */
 }
+
 .section-content p {
   font-size: 18px;
   color: #ffffff;
   margin: 50px 0 0 0;
   line-height: 2;
   font-family: var(--font-poppi);
+  margin: 40px 0;
 }
 
 .section-content a {
@@ -130,8 +153,7 @@ section {
   font-size: 24px;
   padding: 8px 35px;
   font-family: "Poppins",  sans-serif;
-  position: absolute;
-  bottom: 0;
+  justify-self: right;
 }
 
 .image-cards {
@@ -158,7 +180,7 @@ section {
   transition: 1s;
 }
 .image-card:hover {
-  box-shadow: 5px 5px 1px #1168d4;
+  filter: var(--filter-drop_sh_card);
   transform: scale(1.1, 1.1);
 }
 .image-card:nth-of-type(1) {
